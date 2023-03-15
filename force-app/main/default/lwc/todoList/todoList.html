@@ -1,0 +1,23 @@
+<template>
+  <lightning-card title="Unoriginal Todo-List">
+    <lightning-button
+      label="New Task"
+      slot="actions"
+      onclick={handleAdd}
+    ></lightning-button>
+
+    <template for:each={taskList} for:item="task" for:index="i">
+      <div key={task}>
+        <lightning-card title={task}>
+          <lightning-button
+            label="Delete"
+            slot="actions"
+            onclick={handleDelete}
+          ></lightning-button>
+        </lightning-card>
+      </div>
+    </template>
+
+    <p slot="footer">Created by Paula Sirisumpund while learning LWC</p>
+  </lightning-card>
+</template>
