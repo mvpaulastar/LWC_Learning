@@ -1,10 +1,19 @@
 <template>
   <lightning-card title="Unoriginal Todo-List">
-    <lightning-button
-      label="New Task"
-      slot="actions"
-      onclick={handleAdd}
-    ></lightning-button>
+    <div class="slds-p-around_medium lgc-bg">
+      <lightning-input
+        type="text"
+        label="New Task"
+        placeholder="What is your new task?"
+        value={newTask}
+        class="slds-m-bottom_small"
+      ></lightning-input>
+      <lightning-button
+        label="Submit"
+        slot="actions"
+        onclick={handleAdd}
+      ></lightning-button>
+    </div>
 
     <template for:each={taskList} for:item="task" for:index="i">
       <div key={task}>
