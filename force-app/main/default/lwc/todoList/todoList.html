@@ -16,11 +16,12 @@
     </div>
 
     <template for:each={taskList} for:item="task" for:index="i">
-      <div key={task}>
-        <lightning-card title={task}>
+      <div key={task.id}>
+        <lightning-card title={task.task}>
           <lightning-button
             label="Delete"
             slot="actions"
+            value={i}
             onclick={handleDelete}
           ></lightning-button>
         </lightning-card>
