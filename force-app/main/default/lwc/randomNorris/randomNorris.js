@@ -29,7 +29,7 @@ export default class RandomNorris extends LightningElement {
       `https://api.chucknorris.io/jokes/categories`
     );
     this.categoryList = categories.filter((category) => {
-      return !(category === "explicit" || category === "political");
+      return !(category === "explicit" || category === "political" || category === "religion");
     });
     this.dataLoaded = true;
   }
