@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <lightning-card title="Random Norris Jokes LWC." style="text-align: center">
+      <template if:true={dataLoaded}>
+        <form class="slds-m-around_xx-large" style="text-align: center">
+          <label for="joke-type">Choose a Norris joke category.</label>
+          <br />
+          <select
+            name="joke-type"
+            onchange={handleSelectChange}
+            class="slds-m-vertical_medium"
+          >
+            <template for:each={categoryList} for:item="category" for:index="i">
+              <option key={category} value={category}>{category}</option>
+            </template>
+          </select>
+          <br />
+          <lightning-button
+            type="submit"
+            variant="brand"
+            label="Submit"
+            title="Submit form"
+            onclick={submitHandler}
+            class="slds-m-top_large"
+          ></lightning-button>
+        </form>
+      </template>
+
+      <template if:false={dataLoaded}>
+        <p>Loading...</p>
+      </template>
+
+      <div class="slds-m-horizontal_xx-large">
+        <template if:true={isSubmitted}>
+          <p>{joke}</p>
+        </template>
+      </div>
+      <p slot="footer">
+        Dynamically pulls joke categories from external API, and displays Chuck
+        Norris jokes based on chosen categories
+      </p>
+    </lightning-card>
+  </div>
+</template>
