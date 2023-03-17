@@ -1,0 +1,37 @@
+<template>
+  <lightning-card title="Random Facts LWC.">
+    <form class="slds-m-around_xx-large">
+      <label for="fact-type">Choose a specific fact type. </label>
+      <select name="fact-type" id="fact-type" onchange={handleSelectChange}>
+        <option value="trivia" selected>Trivia</option>
+        <option value="year">Year</option>
+        <option value="math">Math</option>
+      </select>
+      <lightning-input
+        type="number"
+        label="Enter a number for a random fact!"
+        placeholder="1"
+        onchange={handleInputChange}
+        class="slds-m-bottom_small"
+        required
+      >
+      </lightning-input>
+      <lightning-button
+        type="submit"
+        variant="brand"
+        label="Submit"
+        title="Submit form"
+        onclick={submitHandler}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </form>
+    <div class="slds-m-horizontal_xx-large" style="width: 400px">
+      <template if:true={isSubmitted}>
+        <p>{fact}</p>
+      </template>
+    </div>
+    <p slot="footer">
+      Calls an API that returns a random fact based on the number entered.
+    </p>
+  </lightning-card>
+</template>

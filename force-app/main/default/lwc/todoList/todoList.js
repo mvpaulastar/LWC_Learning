@@ -22,7 +22,6 @@ export default class TodoList extends LightningElement {
       id: this.taskList.length + 1,
       task: this.template.querySelector("lightning-input").value
     };
-    console.log(newTask);
     this.taskList = [...this.taskList, newTask];
   }
   handleDelete(event) {
